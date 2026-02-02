@@ -332,8 +332,10 @@ function initHeroAnimations() {
 // 7. MAGNETIC CURSOR EFFECT (Editorial Style)
 // =========================================
 function initMagneticCursor() {
-  // Only on desktop
-  if (window.innerWidth < 768) return;
+  // Only on desktop and if user prefers motion
+  if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
 
   const cursor = document.createElement('div');
   cursor.classList.add('custom-cursor');
@@ -351,13 +353,22 @@ function initMagneticCursor() {
     mouseY = e.clientY;
   });
 
-  // Smooth cursor follow
-  gsap.ticker.add(() => {
-    const dt = 1.0 - Math.pow(0.8, gsap.ticker.deltaRatio());
-    cursorX += (mouseX - cursorX) * dt;
-    cursorY += (mouseY - cursorY) * dt;
-    gsap.set(cursor, { x: cursorX, y: cursorY });
-  });
+  // Check if gsap is available
+  if (typeof gsap !== 'undefined' && typeof gsap.ticker !== 'undefined') {
+    // Smooth cursor follow with GSAP
+    gsap.ticker.add(() => {
+      const dt = 1.0 - Math.pow(0.8, gsap.ticker.deltaRatio());
+      cursorX += (mouseX - cursorX) * dt;
+      cursorY += (mouseY - cursorY) * dt;
+      gsap.set(cursor, { x: cursorX, y: cursorY });
+    });
+  } else {
+    // Fallback to simple positioning
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  }
 
   // Hover effects for interactive elements
   const interactiveElements = document.querySelectorAll('a, button, .project-card, .filter-btn');
@@ -478,19 +489,79 @@ function initFilterAnimations() {
   
   filterButtons.forEach(btn => {
     btn.addEventListener('mouseenter', function() {
-      gsap.to(this, {
-        scale: 1.05,
-        duration: 0.2,
-        ease: 'power1.out'
-      });
+      if (typeof gsap !== 'undefined') {
+        gsap.to(this, {
+          scale: 1.05,
+          duration: 0.2,
+          ease: 'power1.out'
+        });
+      }
     });
 
     btn.addEventListener('mouseleave', function() {
-      gsap.to(this, {
-        scale: 1,
-        duration: 0.2,
-        ease: 'power1.out'
+      if (typeof gsap !== 'undefined') {
+        gsap.to(this, {
+          scale: 1,
+          duration: 0.2,
+          ease: 'power1.out'
+        });
+      }
+    });
+  });
+}
+
+// =========================================
+// 12. LAZY LOAD IMAGES
+// =========================================
+function initLazyLoadImages() {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
       });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+  } else {
+    // Fallback: load all images immediately
+    lazyImages.forEach(img => img.classList.add('loaded'));
+  }
+}
+
+// =========================================
+// 13. REMOVE LOADING STATE
+// =========================================
+function removeLoadingState() {
+  document.body.classList.remove('loading');
+  document.body.style.overflow = 'auto';
+}
+
+// =========================================
+// 14. ADD SMOOTH SCROLL SUPPORT
+// =========================================
+function initSmoothScroll() {
+  // Already handled by main.js, but ensure it's working
+  const scrollLinks = document.querySelectorAll('a[href^="#"]');
+  
+  scrollLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
     });
   });
 }
@@ -499,6 +570,9 @@ function initFilterAnimations() {
 // INITIALIZE ALL ANIMATIONS
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Add loading class to body
+  document.body.classList.add('loading');
+  
   // Always init loader first (has fallback)
   initPageLoader();
 
@@ -506,13 +580,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof gsap === 'undefined') {
     console.warn('GSAP not loaded - animations disabled');
     // Still enable basic interactions
-    const loader = document.querySelector('.page-loader');
-    if (loader) {
-      setTimeout(() => {
-        loader.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }, 2000);
-    }
+    setTimeout(() => {
+      removeLoadingState();
+    }, 2000);
+    initLazyLoadImages();
+    initSmoothScroll();
     return;
   }
 
@@ -533,6 +605,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initBlogAnimations();
     initScrollProgress();
     initFilterAnimations();
+    initLazyLoadImages();
+    initSmoothScroll();
+
+    // Remove loading state after animations are set up
+    setTimeout(removeLoadingState, 100);
 
     // Refresh ScrollTrigger after all animations are set up
     if (typeof ScrollTrigger !== 'undefined') {
@@ -545,5 +622,20 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('resize', () => {
   if (typeof ScrollTrigger !== 'undefined') {
     ScrollTrigger.refresh();
+  }
+});
+
+// Handle page visibility change
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    // Pause animations when page is hidden (performance optimization)
+    if (typeof gsap !== 'undefined') {
+      gsap.globalTimeline.pause();
+    }
+  } else {
+    // Resume animations when page becomes visible
+    if (typeof gsap !== 'undefined') {
+      gsap.globalTimeline.resume();
+    }
   }
 });

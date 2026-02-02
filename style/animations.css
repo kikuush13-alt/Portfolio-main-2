@@ -355,6 +355,37 @@ h2 .char {
   .blog-card:hover {
     transform: none;
   }
+  
+  /* Disable hover effects on mobile for better performance */
+  .project-card,
+  .blog-card,
+  .filter-btn {
+    will-change: auto;
+  }
+  
+  /* Ensure touch targets are large enough */
+  .filter-btn {
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  button,
+  .project-btn,
+  .read-more {
+    min-height: 44px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .loader-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loader-progress {
+    width: 70%;
+  }
 }
 
 /* =========================================
@@ -427,4 +458,109 @@ h2 .char {
 .stagger-item.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* =========================================
+   19. ENHANCED HERO ANIMATIONS
+   ========================================= */
+.hero-top,
+.hero-middle,
+.hero-bottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Initial hidden state for hero elements */
+body.loading .hero-top,
+body.loading .hero-middle,
+body.loading .hero-bottom,
+body.loading .hero-portrait {
+  opacity: 0;
+}
+
+/* =========================================
+   20. SMOOTH PAGE FADE-IN
+   ========================================= */
+body {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+/* =========================================
+   21. IMAGE LOADING OPTIMIZATION
+   ========================================= */
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* =========================================
+   22. SECTION ENTRANCE ANIMATIONS
+   ========================================= */
+.section-skills,
+.section-projects,
+.section-carousel,
+.section-blog {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* =========================================
+   23. LINK HOVER EFFECTS
+   ========================================= */
+a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a:not(.project-card):not(.blog-card):not(.logo):hover {
+  color: var(--accent-burgundy);
+}
+
+/* =========================================
+   24. NAVIGATION ENHANCEMENTS
+   ========================================= */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-burgundy);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   25. ENHANCED SCROLL BEHAVIOR
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
