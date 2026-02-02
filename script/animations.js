@@ -11,6 +11,20 @@ function initPageLoader() {
   const loader = document.querySelector('.page-loader');
   if (!loader) return;
 
+  // Check if GSAP is available
+  if (typeof gsap === 'undefined') {
+    // Fallback: Simple CSS transition
+    setTimeout(() => {
+      loader.style.transition = 'opacity 0.5s ease';
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }, 500);
+    }, 1500);
+    return;
+  }
+
   const tl = gsap.timeline({
     onComplete: () => {
       loader.style.display = 'none';
@@ -485,9 +499,20 @@ function initFilterAnimations() {
 // INITIALIZE ALL ANIMATIONS
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Always init loader first (has fallback)
+  initPageLoader();
+
   // Wait for GSAP and plugins to load
   if (typeof gsap === 'undefined') {
-    console.error('GSAP not loaded');
+    console.warn('GSAP not loaded - animations disabled');
+    // Still enable basic interactions
+    const loader = document.querySelector('.page-loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }, 2000);
+    }
     return;
   }
 
@@ -498,7 +523,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize all animations with slight delays for smooth loading
   setTimeout(() => {
-    initPageLoader();
     initH2Animations();
     initSmoothScrollEnhancements();
     initProjectCardAnimations();
