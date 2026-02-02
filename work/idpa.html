@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Unified Work CSS -->
+    <link rel="stylesheet" href="../style/work-unified.css">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -19,8 +22,11 @@
     
     <!-- Layout Component -->
     <script src="../script/layout-component.js"></script>
+    
+    <!-- Unified Work JavaScript -->
+    <script src="work-unified.js" defer></script>
 
-    <!-- AUSKOMMENTIERT - CSS wird bereits über externe Dateien und layout-component geladen -->
+    <!-- AUSKOMMENTIERT - CSS wird nun über work-unified.css geladen -->
     <!-- <style>
         :root {
             --bg-primary: #000;
@@ -328,23 +334,30 @@
                     end: "bottom top",
                     scrub: true
                 },
-                scale: 1,
                 ease: "none"
-            });
         });
+    });
 
-        // Sidebar smooth sticky logic (handled by CSS, but we can add fade)
-        gsap.from(".article-sidebar", {
-            scrollTrigger: {
-                trigger: ".article-main",
-                start: "top center",
-                toggleActions: "play none none none"
-            },
-            opacity: 0,
-            x: 20,
-            duration: 1.5,
-            ease: "power3.out"
-        });
-    </script>
+    // Sidebar smooth sticky logic (handled by CSS, but we can add fade)
+    gsap.from(".article-sidebar", {
+        scrollTrigger: {
+            trigger: ".article-main",
+            start: "top center",
+            toggleActions: "play none none none"
+        },
+        opacity: 0,
+        x: 20,
+        duration: 1.5,
+        ease: "power3.out"
+    });
+</script>
+
+<!-- Noscript fallback for navigation -->
+<noscript>
+    <style>
+        .nav { display: flex !important; }
+        .site-header { background: #324B53 !important; }
+    </style>
+</noscript>
 </body>
 </html>
