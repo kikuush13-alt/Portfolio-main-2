@@ -191,11 +191,13 @@ function initProjectCardAnimations() {
     });
 
     card.addEventListener('mouseleave', function(e) {
+      // Combined: reset position, scale, and overlay
       gsap.to(card, {
         y: 0,
+        x: 0,
         scale: 1,
-        duration: 0.4,
-        ease: 'power2.out'
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.5)'
       });
       
       const overlay = card.querySelector('.project-overlay');
@@ -215,18 +217,9 @@ function initProjectCardAnimations() {
       
       gsap.to(card, {
         x: x * 0.05,
-        y: y * 0.05,
+        y: y * 0.05 - 12, // Keep the -12 from the initial hover
         duration: 0.3,
         ease: 'power2.out'
-      });
-    });
-
-    card.addEventListener('mouseleave', function(e) {
-      gsap.to(card, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: 'elastic.out(1, 0.5)'
       });
     });
   });
@@ -239,8 +232,6 @@ function enhanceAccordionAnimations() {
   const accordionTriggers = document.querySelectorAll('.accordion-trigger');
   
   accordionTriggers.forEach(trigger => {
-    const originalClickHandler = trigger.onclick;
-    
     trigger.addEventListener('click', function(e) {
       const item = this.closest('.accordion-item');
       const content = item.querySelector('.accordion-content');
