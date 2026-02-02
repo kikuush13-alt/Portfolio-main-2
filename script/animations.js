@@ -5,6 +5,17 @@
 'use strict';
 
 // =========================================
+// CONSTANTS & CONFIGURATION
+// =========================================
+const ANIMATION_CONFIG = {
+  MAGNETIC_STRENGTH: 0.05,    // Strength of magnetic hover effect
+  HOVER_OFFSET: -12,          // Vertical lift on hover (pixels)
+  CURSOR_SMOOTHING: 0.8,      // Cursor follow smoothing factor (0-1)
+  LOADER_DISPLAY_TIME: 1500,  // Minimum loader display time (ms)
+  ANIMATION_DELAY: 100        // Delay before starting page animations (ms)
+};
+
+// =========================================
 // 1. PAGE LOADER - High-End Editorial Style
 // =========================================
 function initPageLoader() {
@@ -21,7 +32,7 @@ function initPageLoader() {
         loader.style.display = 'none';
         document.body.style.overflow = 'auto';
       }, 500);
-    }, 1500);
+    }, ANIMATION_CONFIG.LOADER_DISPLAY_TIME);
     return;
   }
 
@@ -175,7 +186,7 @@ function initProjectCardAnimations() {
     // Enhanced hover effect with tilt
     card.addEventListener('mouseenter', function(e) {
       gsap.to(card, {
-        y: -12,
+        y: ANIMATION_CONFIG.HOVER_OFFSET,
         scale: 1.02,
         duration: 0.4,
         ease: 'power2.out'
@@ -216,8 +227,8 @@ function initProjectCardAnimations() {
       const y = e.clientY - rect.top - rect.height / 2;
       
       gsap.to(card, {
-        x: x * 0.05,
-        y: y * 0.05 - 12, // Keep the -12 from the initial hover
+        x: x * ANIMATION_CONFIG.MAGNETIC_STRENGTH,
+        y: y * ANIMATION_CONFIG.MAGNETIC_STRENGTH + ANIMATION_CONFIG.HOVER_OFFSET,
         duration: 0.3,
         ease: 'power2.out'
       });
@@ -348,7 +359,7 @@ function initMagneticCursor() {
   if (typeof gsap !== 'undefined' && typeof gsap.ticker !== 'undefined') {
     // Smooth cursor follow with GSAP
     gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(0.8, gsap.ticker.deltaRatio());
+      const dt = 1.0 - Math.pow(ANIMATION_CONFIG.CURSOR_SMOOTHING, gsap.ticker.deltaRatio());
       cursorX += (mouseX - cursorX) * dt;
       cursorY += (mouseY - cursorY) * dt;
       gsap.set(cursor, { x: cursorX, y: cursorY });
@@ -600,13 +611,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
 
     // Remove loading state after animations are set up
-    setTimeout(removeLoadingState, 100);
+    setTimeout(removeLoadingState, ANIMATION_CONFIG.ANIMATION_DELAY);
 
     // Refresh ScrollTrigger after all animations are set up
     if (typeof ScrollTrigger !== 'undefined') {
       ScrollTrigger.refresh();
     }
-  }, 100);
+  }, ANIMATION_CONFIG.ANIMATION_DELAY);
 });
 
 // Refresh on window resize
