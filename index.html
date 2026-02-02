@@ -23,8 +23,27 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<!-- Styles -->
 		<link rel="stylesheet" href="style/style.css" />
+		<link rel="stylesheet" href="style/animations.css" />
 	</head>
 	<body>
+		<!-- Page Loader -->
+		<div class="page-loader">
+			<div class="loader-content">
+				<div class="loader-logo">
+					<img src="img/logo_white.png" alt="Loading...">
+				</div>
+				<div class="loader-progress">
+					<div class="loader-progress-bar"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Scroll Progress Bar -->
+		<div class="scroll-progress"></div>
+		
+		<!-- Grain Overlay for Editorial Effect -->
+		<div class="grain-overlay"></div>
+		
 		<site-layout>
 			<!-- Navigation -->
 			<main>
@@ -629,6 +648,7 @@
 			</main>
 		</site-layout>
 		<script src="script/main.js"></script>
+		<script src="script/animations.js"></script>
 		<script src="script/layout-component.js" defer></script>
 	</body>
 </html>
