@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Khadija Okbi – Portfolio | Mediamatikerin EFZ</title>
+		<meta name="description" content="Editorial, modernes Portfolio von Khadija Okbi – Kreatives Design & Digitalstrategie." />
+		<link rel="icon" type="image/png" href="img/logo_white.png" />
+		<!-- Fonts-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Mulish:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+		 <!-- Font Awesome Icons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- GSAP & ScrollTrigger -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+		<script src="https://unpkg.com/split-type"></script>
+		<!-- jQuery für Carousel -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- Styles -->
+		<link rel="stylesheet" href="style/style.css" />
+	</head>
+	<body>
+		<site-layout>
+			<!-- Navigation -->
+			<main>
+				<div class="hero-section" id="hero">
+					<div class="hero-bg-image"></div>
+					<div class="hero-header">
+						<h1 class="hero-top">CREATIVE</h1>
+						<p class="hero-middle">Art</p>
+						<h1 class="hero-bottom">DIRECTOR</h1>
+						<div class="hero-bilder">
+							<div class="hero-portrait-bg">
+								<img src="img/cutout_bg.png" alt="Hintergrund des Portraits">
+							</div>
+							<div class="hero-portrait">
+								<img src="img/cutout.png" alt="Portrait von Khadija Okbi">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Work Section -->
+				<section class="section-skills" id="expertise">
+					<div class="container">
+						<div class="skills-header">
+							<h2>What I do</h2>
+						</div>
+						<div class="skills-accordion">
+							<!-- 1. DESIGN -->
+							<div class="accordion-item" data-category="design">
+								<button class="accordion-trigger" aria-expanded="false">
+									<div class="trigger-left">
+										<span class="trigger-number">01</span>
+										<h3 class="trigger-title">DESIGN</h3>
+									</div>
+									<div class="trigger-icon">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+											<path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+								</button>
+								<div class="accordion-content">
+									<div class="skills-table">
+										<div class="table-row">
+											<div class="table-cell">
+												<h4>Was ich mache</h4>
+												<ul>
+													<li>Branding & visuelle Identitäten</li>
+													<li>Logo-Design</li>
+													<li>Corporate Design & Design-Systeme</li>
+													<li>UI Design für Web & Digital Media</li>
+													<li>Layouts für Plakate, Kampagnen & Social</li>
+													<li>Bildbearbeitung & visuelles Feintuning</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Kontext & Erfahrung</h4>
+												<ul>
+													<li>Agenturmarketing (Full Service)</li>
+													<li>Sportmarketing & Vereinskommunikation</li>
+													<li>Digital & Print kombiniert</li>
+													<li>Design für reale Anforderungen</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Tools & Technologien</h4>
+												<div class="tool-grid">
+													<div class="tool-item">
+														<i class="fab fa-adobe"></i>
+														<span>Photoshop</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/illustrator.svg" alt="Illustrator">
+														<span>Illustrator</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/indesign.svg" alt="InDesign">
+														<span>InDesign</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/procreate.svg" alt="Procreate">
+														<span>Procreate</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/canva.svg" alt="Canva">
+														<span>Canva</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 2. MARKETING -->
+							<div class="accordion-item" data-category="marketing">
+								<button class="accordion-trigger" aria-expanded="false">
+									<div class="trigger-left">
+										<span class="trigger-number">02</span>
+										<h3 class="trigger-title">MARKETING</h3>
+									</div>
+									<div class="trigger-icon">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+											<path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+								</button>
+								<div class="accordion-content">
+									<div class="skills-table">
+										<div class="table-row">
+											<div class="table-cell">
+												<h4>Was ich mache</h4>
+												<ul>
+													<li>Themen- & Kampagnenkonzeption</li>
+													<li>Content-Strategien</li>
+													<li>Social Media Marketing</li>
+													<li>Storytelling & Copywriting</li>
+													<li>Positionierung & Zielgruppenansprache</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Kontext & Erfahrung</h4>
+												<ul>
+													<li>Sportmarketing</li>
+													<li>Social Media Marketing</li>
+													<li>Agenturumfeld (Full Service)</li>
+													<li>Arbeit mit Organisationen & Vereinen</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Tools & Technologien</h4>
+												<div class="tool-grid">
+													<div class="tool-item">
+														<img src="img/icons/instagram.svg" alt="Instagram">
+														<span>Instagram</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/tiktok.svg" alt="TikTok">
+														<span>TikTok</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/canva.svg" alt="Canva">
+														<span>Canva</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 3. MOTION -->
+							<div class="accordion-item" data-category="motion">
+								<button class="accordion-trigger" aria-expanded="false">
+									<div class="trigger-left">
+										<span class="trigger-number">03</span>
+										<h3 class="trigger-title">MOTION</h3>
+									</div>
+									<div class="trigger-icon">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+											<path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+								</button>
+								<div class="accordion-content">
+									<div class="skills-table">
+										<div class="table-row">
+											<div class="table-cell">
+												<h4>Was ich mache</h4>
+												<ul>
+													<li>Motion Design für Social Media</li>
+													<li>Typo-Animationen</li>
+													<li>Video-Schnitt</li>
+													<li>Dynamische Inhalte für Kampagnen & Sport</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Kontext & Erfahrung</h4>
+												<ul>
+													<li>Social Content für Sport & Organisationen</li>
+													<li>Kampagnenvideos</li>
+													<li>Kurzformate mit Fokus auf Wirkung</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Tools & Technologien</h4>
+												<div class="tool-grid">
+													<div class="tool-item">
+														<img src="img/icons/aftereffects.svg" alt="After Effects">
+														<span>After Effects</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/premierepro.svg" alt="Premiere Pro">
+														<span>Premiere Pro</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/capcut.svg" alt="CapCut">
+														<span>CapCut</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 4. WEB -->
+							<div class="accordion-item" data-category="web">
+								<button class="accordion-trigger" aria-expanded="false">
+									<div class="trigger-left">
+										<span class="trigger-number">04</span>
+										<h3 class="trigger-title">WEB</h3>
+									</div>
+									<div class="trigger-icon">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+											<path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+									</div>
+								</button>
+								<div class="accordion-content">
+									<div class="skills-table">
+										<div class="table-row">
+											<div class="table-cell">
+												<h4>Was ich mache</h4>
+												<ul>
+													<li>Konzeption & Umsetzung moderner Websites</li>
+													<li>Onepager & Portfolio-Websites</li>
+													<li>UI / UX Design</li>
+													<li>Interaktive Elemente & Animationen</li>
+													<li>Tool-abhängige Umsetzung je nach Projekt</li>
+												</ul>
+											</div>
+											<div class="table-cell">
+												<h4>Systeme & Erfahrung</h4>
+												<ul>
+													<li>Drupal</li>
+													<li>Webflow</li>
+													<li>Canva Websites</li>
+												</ul>
+											</div>
+										</div>
+										<div class="table-row">
+											<div class="table-cell">
+												<h4>Technologien</h4>
+												<div class="tool-grid">
+													<div class="tool-item">
+														<img src="img/icons/html5.svg" alt="HTML5">
+														<span>HTML5</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/css3.svg" alt="CSS3">
+														<span>CSS3</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/javascript.svg" alt="JavaScript">
+														<span>JavaScript</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/vscode.svg" alt="VS Code">
+														<span>VS Code</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/github.svg" alt="GitHub">
+														<span>GitHub</span>
+													</div>
+												</div>
+											</div>
+											<div class="table-cell">
+												<h4>KI-Tools</h4>
+												<div class="tool-grid">
+													<div class="tool-item">
+														<img src="img/icons/chatgpt.svg" alt="ChatGPT">
+														<span>ChatGPT</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/gemini.svg" alt="Google Gemini">
+														<span>Gemini</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/claude.svg" alt="Claude">
+														<span>Claude</span>
+													</div>
+													<div class="tool-item">
+														<img src="img/icons/perplexity.svg" alt="Perplexity">
+														<span>Perplexity</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-projects" id="projects" aria-label="Projekte & Arbeiten">
+						<div class="container">
+							<h2 class="selected-projects" style="margin-top: 3rem;">Ausgewählte Projekte</h2>
+							<div class="filter-bar" role="toolbar" aria-label="Projektfilter">
+								<button class="filter-btn" data-filter="all">Alle</button>
+								<button class="filter-btn" data-filter="visual">Visual Art</button>
+								<button class="filter-btn" data-filter="motion">Motion</button>
+								<button class="filter-btn" data-filter="marketing">Marketing</button>
+								<button class="filter-btn" data-filter="web">Web Dev</button>
+							</div>
+							<!-- Grid -->
+							<div class="projects-grid" id="projectsGrid">
+								<!-- 1 -->
+								<a href="unterseiten/petrichor.html" class="project-card tone-dark" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/1_petrichor_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 2 -->
+								<a href="unterseiten/trailerpark.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/2_trailerpark_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 3 -->
+								<a href="unterseiten/gamedays.html" class="project-card tone-dark" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/3_gamedays_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 4 -->
+								<a href="unterseiten/ballet.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/4_ballet_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 5 -->
+								<a href="unterseiten/pfadi.html" class="project-card tone-dark" data-category="marketing">
+									<div class="project-media" style="background-image:url('img/gallery/5_nextgame_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 6 -->
+								<a href="unterseiten/tiktok.html" class="project-card tone-light" data-category="marketing">
+									<div class="project-media" style="background-image:url('img/gallery/6_socialmediakonzept_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 7 -->
+								<a href="unterseiten/beauty.html" class="project-card tone-dark" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/7_beauty_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 8 -->
+								<a href="unterseiten/eiskunstlauf.html" class="project-card tone-light" data-category="web">
+									<div class="project-media" style="background-image:url('img/gallery/8_ecw_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 9 -->
+								<a href="unterseiten/website-prototype.html" class="project-card tone-dark" data-category="web">
+									<div class="project-media" style="background-image:url('img/gallery/9_website_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 10 -->
+								<a href="unterseiten/vinyl.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/10_vinyl_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 11 -->
+								<a href="unterseiten/komthur.html" class="project-card tone-dark" data-category="web">
+									<div class="project-media" style="background-image:url('img/gallery/11_komthur_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 12 -->
+								<a href="unterseiten/muted.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/12_muted_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 13 -->
+								<a href="unterseiten/animation-promo.html" class="project-card tone-dark" data-category="motion">
+									<div class="project-media" style="background-image:url('img/gallery/13_ani_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 14 -->
+								<a href="unterseiten/typebook.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/14_typobook_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 15 -->
+								<a href="unterseiten/sgmodel.html" class="project-card tone-dark" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/15_sgmodel_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 16 -->
+								<a href="unterseiten/self-collage.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/16_collage_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 17 -->
+								<a href="unterseiten/wehelp.html" class="project-card tone-dark" data-category="marketing">
+									<div class="project-media" style="background-image:url('img/gallery/17_wehelp_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 18 -->
+								<a href="unterseiten/bewerbung.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/18_bewerbung_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 19 -->
+								<a href="unterseiten/youth-festival.html" class="project-card tone-dark" data-category="motion">
+									<div class="project-media" style="background-image:url('img/gallery/19_yftrailer_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 20 -->
+								<a href="unterseiten/jumpin.html" class="project-card tone-light" data-category="marketing">
+									<div class="project-media" style="background-image:url('img/gallery/20_jumpin_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 21 -->
+								<a href="unterseiten/presentation.html" class="project-card tone-dark" data-category="motion">
+									<div class="project-media" style="background-image:url('img/gallery/21_presentation_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 22 -->
+								<a href="unterseiten/instagram.html" class="project-card tone-light" data-category="marketing">
+									<div class="project-media" style="background-image:url('img/gallery/22_insta_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 23 -->
+								<a href="unterseiten/immobilien.html" class="project-card tone-dark" data-category="marketing">
+									<div class="project-media" style="background-image:url('img/gallery/23_immo_dark.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+								<!-- 24 -->
+								<a href="unterseiten/corona.html" class="project-card tone-light" data-category="visual">
+									<div class="project-media" style="background-image:url('img/gallery/24_corona_light.jpg')"></div>
+									<div class="project-overlay"></div>
+									<div class="project-info">
+										<button class="project-btn">MEHR DETAILS</button>
+									</div>
+								</a>
+							</div>
+				</section>
+				<section class="section-carousel" id="carousel" aria-label="Carousel">
+					<div class="container">
+            <h2 style="color: white; padding-bottom: 0rem;">Fotografie</h2>
+						<div class="carousel">
+							<div class="carousel__nav">
+								<span id="moveLeft" class="carousel__arrow">
+									<svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+										<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+									</svg>
+								</span>
+								<span id="moveRight" class="carousel__arrow">
+									<svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+										<path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+									</svg>
+								</span>
+							</div>
+							<div class="carousel-item carousel-item--1">
+								<div class="carousel-item__image"></div>
+								<div class="carousel-item__info">
+									<div class="carousel-item__container">
+										<h2 class="carousel-item__subtitle">Street photography </h2>
+										<h1 class="carousel-item__title">Le tour</h1>
+										<p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+										<a href="#" class="carousel-item__btn">Explore the tour</a>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item carousel-item--2">
+								<div class="carousel-item__image"></div>
+								<div class="carousel-item__info">
+									<div class="carousel-item__container">
+										<h2 class="carousel-item__subtitle">Konstanz im lockdown </h2>
+										<h1 class="carousel-item__title">Minimal window</h1>
+										<p class="carousel-item__description">Clear Glass Window With Brown and White Wooden Frame iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+										<a href="#" class="carousel-item__btn">Read the article</a>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item carousel-item--3">
+								<div class="carousel-item__image"></div>
+								<div class="carousel-item__info">
+									<div class="carousel-item__container">
+										<h2 class="carousel-item__subtitle">Movement & Light </h2>
+										<h1 class="carousel-item__title">Palms</h1>
+										<p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+										<a href="#" class="carousel-item__btn">Explore the palms</a>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item carousel-item--4">
+								<div class="carousel-item__image"></div>
+								<div class="carousel-item__info">
+									<div class="carousel-item__container">
+										<h2 class="carousel-item__subtitle">Beach </h2>
+										<h1 class="carousel-item__title">The beach </h1>
+										<p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+										<a href="#" class="carousel-item__btn">Explore the beach</a>
+									</div>
+								</div>
+							</div>
+							<div class="carousel-item carousel-item--5">
+								<div class="carousel-item__image"></div>
+								<div class="carousel-item__info">
+									<div class="carousel-item__container">
+										<h2 class="carousel-item__subtitle">The white building </h2>
+										<h1 class="carousel-item__title">White building</h1>
+										<p class="carousel-item__description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+										<a href="#" class="carousel-item__btn">Read the article</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Blog Section -->
+				<section class="section-blog" id="blog" aria-label="Blog">
+					<div class="container">
+						<h2 style="color: white;">Blog</h2>
+						<div class="blog-grid" id="blogGrid">
+							<article class="blog-card" data-category="design">
+								<div class="blog-thumb" style="background-image:url('img/idpa.jpg')" loading="lazy" aria-hidden="true"></div>
+								<div class="blog-content">
+									<h3 class="blog-title">Die Illusion der freien Meinung</h3>
+									<p class="blog-teaser">Demokratie in Zeiten von Social Media & KI</p>
+									<button class="read-more" data-target="post-1">Weiterlesen</button>
+								</div>
+							</article>
+							<article class="blog-card" data-category="process">
+								<div class="blog-thumb" style="background-image:url('img/tiktok.png')" loading="lazy" aria-hidden="true"></div>
+								<div class="blog-content">
+									<h3 class="blog-title">10k Follower in 30 Tagen</h3>
+									<p class="blog-teaser">Meine Faceless Tiktok Strategie</p>
+									<button class="read-more" data-target="post-2">Weiterlesen</button>
+								</div>
+							</article>
+							<article class="blog-card" data-category="marketing">
+								<div class="blog-thumb" style="background-image:url('img/threads.webp')" loading="lazy" aria-hidden="true"></div>
+								<div class="blog-content">
+									<h3 class="blog-title">Trending on Threads</h3>
+									<p class="blog-teaser">Wie ich auf Threads meine eigene Trading Community aufgebaut habe</p>
+									<button class="read-more" data-target="post-3">Weiterlesen</button>
+								</div>
+							</article>
+						</div>
+					</div>
+				</section>
+			</main>
+		</site-layout>
+		<script src="script/main.js"></script>
+		<script src="script/layout-component.js" defer></script>
+	</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Projects | Creative Soul</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Layout Component -->
+    <script src="../script/layout-component.js"></script>
+
+    <!-- AUSKOMMENTIERT - CSS wird bereits über Tailwind CSS geladen -->
+    <!-- <style>
+        :root {
+            --bg-primary: #000;
+            --bg-secondary: #F5F5F5;
+            --bg-accent: #F5F5F5;
+            --bg-dark: #314A51;
+            --text-primary: #0A0A0A;
+            --text-primary-light: #EBE1D1;
+            --text-secondary: #525252;
+            --text-tertiary: #56686A;
+            --accent-primary: #2D2D2D;
+            --accent-secondary: #56686A;
+            --accent-warm: #6E3B49;
+            --accent-burgundy: #6E3B49;
+            --border-light: #56686A;
+            --border-default: #6E3B49;
+            --font-body: 'Work Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: white;
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            margin: 0;
+            padding-top: 72px;
+        }
+
+        .font-display { font-family: var(--font-display); }
+        .work-page-wrapper { padding-top: 0; }
+
+        /* --- WAVES --- */
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 23vh;
+            background-color: var(--bg-secondary);
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath d='M0,160L60,176C120,192,240,224,360,229.3C480,235,600,213,720,186.7C840,160,960,128,1080,122.7C1200,117,1320,139,1380,149.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z' fill='black'%3E%3C/path%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath d='M0,160L60,176C120,192,240,224,360,229.3C480,235,600,213,720,186.7C840,160,960,128,1080,122.7C1200,117,1320,139,1380,149.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z' fill='black'%3E%3C/path%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            -webkit-mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .section-about::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 25vh;
+            background-color: var(--accent-burgundy);
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            -webkit-mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* --- COLLAGE STYLES --- */
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, 10vh);
+            gap: 1rem;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+        }
+
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collage-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Positions for the Collage */
+        .item-1 { grid-column: 1 / 4; grid-row: 1 / 4; }
+        .item-2 { grid-column: 4 / 7; grid-row: 2 / 6; }
+        .item-3 { grid-column: 7 / 10; grid-row: 1 / 3; }
+        .item-4 { grid-column: 10 / 13; grid-row: 2 / 5; }
+        .item-5 { grid-column: 1 / 4; grid-row: 4 / 8; }
+        .item-6 { grid-column: 7 / 11; grid-row: 3 / 7; }
+        .item-7 { grid-column: 4 / 7; grid-row: 6 / 9; }
+        .item-8 { grid-column: 11 / 13; grid-row: 5 / 8; }
+
+        .text-outline {
+            -webkit-text-stroke: 1px #EBE1D1;
+            color: transparent;
+        }
+
+        /* --- STORY FORMAT GALLERY --- */
+        .story-gallery {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scrollbar-width: none;
+        }
+        .story-gallery::-webkit-scrollbar { display: none; }
+
+        .story-card {
+            flex: 0 0 300px;
+            aspect-ratio: 9 / 16;
+            background: #222;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+        .story-card:hover { transform: translateY(-10px); }
+        .story-card img { width: 100%; height: 100%; object-fit: cover; }
+        .story-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+    </style> -->
+</head>
+<body>
+
+    <site-layout>
+        <!-- HERO SECTION WITH COLLAGE & PARALLAX -->
+        <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+            <div class="absolute inset-0 z-0 opacity-60 parallax-container">
+                <div class="collage-container">
+                    <div class="collage-item item-1 parallax-item" data-speed="0.05"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800" alt="Fashion 1"></div>
+                    <div class="collage-item item-2 parallax-item" data-speed="0.1"><img src="https://images.unsplash.com/photo-1529139513055-07f9f247167b?auto=format&fit=crop&q=80&w=800" alt="Aesthetic 1"></div>
+                    <div class="collage-item item-3 parallax-item" data-speed="0.07"><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=800" alt="Design 1"></div>
+                    <div class="collage-item item-4 parallax-item" data-speed="0.12"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800" alt="Fashion 2"></div>
+                    <div class="collage-item item-5 parallax-item" data-speed="0.08"><img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&q=80&w=800" alt="Design 2"></div>
+                    <div class="collage-item item-6 parallax-item" data-speed="0.15"><img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&q=80&w=800" alt="Aesthetic 2"></div>
+                    <div class="collage-item item-7 parallax-item" data-speed="0.06"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" alt="Vibe 1"></div>
+                    <div class="collage-item item-8 parallax-item" data-speed="0.09"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800" alt="Product 1"></div>
+                </div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <p class="reveal-text font-mono text-sm tracking-[0.4em] uppercase mb-6 text-[#EBE1D1] opacity-90">Personal Projects & Vision</p>
+                <h1 class="reveal-text font-display italic text-6xl md:text-[9rem] font-bold leading-none tracking-tighter mb-10">
+                    Creative <span class="text-outline">Spirit</span>
+                </h1>
+                <div class="reveal-text flex justify-center items-center gap-6">
+                    <div class="h-px w-12 bg-[#EBE1D1]/30"></div>
+                    <p class="text-lg md:text-xl text-[#EBE1D1]/70 max-w-xl font-light italic">
+                        Ein Spielplatz für Design, Ästhetik und die Schönheit des Andersseins.
+                    </p>
+                    <div class="h-px w-12 bg-[#EBE1D1]/30"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT GRID (2x4) -->
+        <section class="section-about py-40 bg-[#F5F5F5] text-[#0A0A0A] relative">
+            <div class="container mx-auto px-6 relative z-20">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div class="max-w-2xl">
+                        <h2 class="font-display text-5xl md:text-8xl mb-8">My <br/><span class="italic text-[#6E3B49]">Manifesto</span></h2>
+                        <p class="text-xl text-[#525252] leading-relaxed font-light">
+                            Hier geht es weniger um Daten und Fakten, sondern um Gefühl und Ausdruck. Meine Eigenprojekte sind eine Reise durch Farben, Formen und feminine Eleganz.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-300 border border-gray-300 reveal-grid">
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Pure Aesthetics</h3>
+                            <p class="text-[#525252] leading-relaxed">Die Suche nach dem perfekten Frame und einer harmonischen Farbwelt.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">01 / VISION</span>
+                    </div>
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Self Love</h3>
+                            <p class="text-[#525252] leading-relaxed">Projekte, die Mut machen und die eigene Identität feiern.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">02 / VISION</span>
+                    </div>
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Soft Motion</h3>
+                            <p class="text-[#525252] leading-relaxed">Fließende Bewegungen und sanfte Übergänge im Motion Design.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">03 / VISION</span>
+                    </div>
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Girly Vibe</h3>
+                            <p class="text-[#525252] leading-relaxed">Mehr Rosa, mehr Glanz, mehr Persönlichkeit – ohne Kompromisse.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">04 / VISION</span>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Typography</h3>
+                            <p class="text-[#525252] leading-relaxed">Wenn Buchstaben zu Kunst werden. Mein Fokus auf edle Schriftarten.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">05 / VISION</span>
+                    </div>
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Editorial</h3>
+                            <p class="text-[#525252] leading-relaxed">Layouts, die wie aus einem High-Fashion Magazin wirken.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">06 / VISION</span>
+                    </div>
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Different</h3>
+                            <p class="text-[#525252] leading-relaxed">"The Beauty of being different" – mein Leitspruch in jedem Design.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">07 / VISION</span>
+                    </div>
+                    <div class="bg-[#F5F5F5] p-12 hover:bg-[#EBE1D1] transition-all duration-700 min-h-[300px] flex flex-col justify-between group">
+                        <div>
+                            <h3 class="font-display italic text-3xl font-bold mb-4 group-hover:text-[#6E3B49]">Flow State</h3>
+                            <p class="text-[#525252] leading-relaxed">Einfach machen. Projekte, die im Moment der Inspiration entstanden sind.</p>
+                        </div>
+                        <span class="font-mono text-[10px] opacity-30">08 / VISION</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORY FORMAT SECTION (Burgundy) -->
+        <section class="py-40 bg-[#6E3B49] text-[#EBE1D1]">
+            <div class="container mx-auto px-6">
+                <h2 class="font-display italic text-5xl md:text-8xl mb-16">Stories from <br/>my <span class="text-white">World</span></h2>
+                
+                <div class="story-gallery reveal-up">
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800" alt="Story 1">
+                        <div class="story-overlay">
+                            <p class="font-mono text-[10px] uppercase opacity-70">Design Study</p>
+                            <h4 class="text-xl font-bold italic">The Art of Lace</h4>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Story 2">
+                        <div class="story-overlay">
+                            <p class="font-mono text-[10px] uppercase opacity-70">Aesthetic</p>
+                            <h4 class="text-xl font-bold italic">Pink Velvet</h4>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" alt="Story 3">
+                        <div class="story-overlay">
+                            <p class="font-mono text-[10px] uppercase opacity-70">Self Love</p>
+                            <h4 class="text-xl font-bold italic">Being You</h4>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&q=80&w=800" alt="Story 4">
+                        <div class="story-overlay">
+                            <p class="font-mono text-[10px] uppercase opacity-70">Concept</p>
+                            <h4 class="text-xl font-bold italic">Golden Hour</h4>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=800" alt="Story 5">
+                        <div class="story-overlay">
+                            <p class="font-mono text-[10px] uppercase opacity-70">Motion</p>
+                            <h4 class="text-xl font-bold italic">Soft Keyframes</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-20 flex justify-center">
+                    <p class="font-mono text-xs uppercase tracking-widest opacity-40 animate-pulse">Swipe to explore →</p>
+                </div>
+            </div>
+        </section>
+    </site-layout>
+
+    <!-- Skript in work-header.js integriert
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        // ... (entfernte Logik) ...
+    </script>
+    -->
+    <script src="work-header.js"></script>
+</body>
+</html>

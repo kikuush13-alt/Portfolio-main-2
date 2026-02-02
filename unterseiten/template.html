@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editorial Project Detail | Portfolio</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- <style>
+        :root {
+            /* Color System - Strategic & Accessible */
+            --bg-primary: #2D2D2D;
+            --bg-secondary: #ebebeb;
+            --bg-accent: #F5F5F5;
+            --bg-tertiary: #56686a;
+            --bg-dark: #314A51;
+            
+            --text-primary: #0A0A0A;
+            --text-primary-light: #EBE1D1;
+            --text-secondary: #525252;
+            --text-tertiary: #B5A19E;
+            
+            --accent-primary: #2D2D2D;
+            --accent-secondary: #56686A;
+            --accent-warm: #BBA28A;
+            --accent-burgundy: #6E3B49;
+            
+            --border-light: #E5E5E5;
+            --border-default: #D4D4D4;
+            --border-strong: #A3A3A3;
+
+            /* Typography System - Editorial Style */
+            --font-body: 'Work Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-editorial: 'Playfair Display', serif;
+            
+            /* Type Scale - 1.250 (Major Third) */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.563rem;
+            --text-3xl: 1.953rem;
+            --text-4xl: 2.441rem;
+            --text-5xl: 3.052rem;
+            --text-6xl: 3.815rem;
+
+            /* Spacing System */
+            --space-1: 0.5rem;
+            --space-2: 1rem;
+            --space-4: 2rem;
+            --space-8: 4rem;
+            --space-12: 6rem;
+            --space-20: 10rem;
+
+            /* Shadows */
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+            /* Motion */
+            --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+            --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* Layout */
+            --container-width: 90%;
+            --container-max-width: 85vw;
+        }
+
+        /* Base & Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .grain-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            width: var(--container-width);
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 5vw, 3rem);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-dark);
+        }
+
+        .hero-img-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 120%;
+            z-index: 1;
+        }
+
+        .hero-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--text-primary-light);
+        }
+
+        .hero-title {
+            font-family: var(--font-editorial);
+            font-size: clamp(4rem, 12vw, 10rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* --- Project Table (2x2 High End) --- */
+        .project-meta {
+            padding: var(--space-12) 0;
+            background: var(--bg-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            border: 1px solid var(--bg-tertiary);
+        }
+
+        .meta-cell {
+            padding: var(--space-8) var(--space-4);
+            border: 0.5px solid var(--bg-tertiary);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            transition: background 0.4s ease;
+        }
+
+        .meta-cell:hover {
+            background: rgba(86, 104, 106, 0.1);
+        }
+
+        .meta-label {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-warm);
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: white;
+            line-height: 1.1;
+        }
+
+        .tool-logos {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.05);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            border: 1px solid var(--bg-tertiary);
+        }
+
+        /* --- Content Sections --- */
+        .section-padding { padding: var(--space-12) 0; }
+
+        .project-description {
+            display: block;
+        }
+
+        .project-description > div:first-child {
+            margin-bottom: 4rem;
+        }
+
+        .project-description > .skills-visual {
+            margin-top: 3rem;
+        }
+
+        .p-dropcap::first-letter {
+            float: left;
+            font-family: var(--font-display);
+            font-size: 5rem;
+            line-height: 0.8;
+            margin-right: 1rem;
+            color: var(--accent-burgundy);
+            font-style: italic;
+        }
+
+        /* --- Kernkompetenzen (Skills) --- */
+        .skills-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+                    }
+
+        .competency-card {
+            background: var(--bg-accent);
+            padding: 2.5rem;
+            border-radius: 0px;
+            border-left: 4px solid var(--accent-burgundy);
+            transition: all 0.4s var(--easing-standard);
+        }
+
+        .competency-card:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .competency-title {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: "";
+            width: 5px;
+            height: 1px;
+            background: var(--accent-burgundy);
+        }
+
+        /* --- Media Showcase --- */
+        .swiper {
+            width: 100%;
+            height: 80vh;
+            margin-bottom: var(--space-8);
+        }
+
+        .swiper-slide img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Before & After --- */
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .comparison-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .img-before {
+            z-index: 2;
+            width: 50%;
+            border-right: 2px solid white;
+        }
+
+        .slider-input {
+            position: absolute;
+            -webkit-appearance: none;
+            width: 100%; height: 100%;
+            background: transparent;
+            z-index: 10;
+            cursor: ew-resize;
+            top: 0; left: 0; margin: 0;
+        }
+
+        /* --- Persona Section --- */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .persona-card {
+            background: white;
+            padding: 4rem;
+            border: 1px solid var(--border-light);
+            transition: all 0.5s var(--easing-standard);
+        }
+
+        .persona-card:hover {
+            border-color: var(--accent-warm);
+        }
+
+        .persona-tag {
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            color: var(--accent-burgundy);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+            letter-spacing: 0.1em;
+        }
+
+        .persona-quote {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            line-height: 1.3;
+            color: var(--bg-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .project-description { grid-template-columns: 1fr; gap: 4rem; }
+            .meta-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .skills-visual { grid-template-columns: 1fr; }
+            .comparison-slider { height: 400px; }
+        }
+    </style> -->
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+<site-layout>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-img-container">
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=2000" alt="Wine Project" class="hero-img">
+            </div>
+            <div class="hero-content">
+                <h6 style="letter-spacing: 0.4em; margin-bottom: 1.5rem; font-weight: 300;">TERROIR & TECH</h6>
+                <h1 class="hero-title">Vignoble<br>Modern</h1>
+            </div>
+        </section>
+
+        <!-- Project Meta Table (2x2 Grid) -->
+        <section class="project-meta">
+            <div class="container">
+                <div class="meta-grid">
+                    <!-- Row 1, Col 1 -->
+                    <div class="meta-cell reveal">
+                        <span class="meta-label">Kompetenzbereich</span>
+                        <span class="meta-value">Design, Fotografie & Web</span>
+                    </div>
+                    <!-- Row 1, Col 2 -->
+                    <div class="meta-cell reveal">
+                        <span class="meta-label">Jahr der Entstehung</span>
+                        <span class="meta-value">2024 — Aktuell</span>
+                    </div>
+                    <!-- Row 2, Col 1 -->
+                    <div class="meta-cell reveal">
+                        <span class="meta-label">Kunde</span>
+                        <span class="meta-value">Château de la Roche</span>
+                    </div>
+                    <!-- Row 2, Col 2 -->
+                    <div class="meta-cell reveal">
+                        <span class="meta-label">Tools & Programme</span>
+                        <div class="tool-logos">
+                            <div class="tool-item">Adobe PS</div>
+                            <div class="tool-item">Lightroom</div>
+                            <div class="tool-item">VS Code</div>
+                            <div class="tool-item">Figma</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description & Skills -->
+        <section class="section-padding" style="background: white;">
+            <div class="container project-description">
+                <div>
+                    <h2 style="font-family: var(--font-display); font-size: var(--text-base); margin-bottom: 2rem; color: var(--accent-burgundy); text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700;">Projekt Fokus</h2>
+                    <p class="p-dropcap">
+                        Die Verschmelzung von jahrhundertealtem Weinbau und digitaler Avantgarde bildete das Fundament dieser Arbeit. Wir kreierten eine Brand Identity, die nicht nur Flaschen schmückt, sondern eine Geschichte im digitalen Raum erzählt.
+                    </p>
+                    <p>
+                        Von der Typografie, die an klassische Weinetiketten erinnert, bis hin zur responsiven Architektur der Web-Plattform – jeder Berührungspunkt wurde daraufhin optimiert, ein Gefühl von Exklusivität und Zeitgeist zu vermitteln.
+                    </p>
+                </div>
+                
+                <div class="skills-visual">
+                    <div class="competency-card skill-reveal">
+                        <span class="competency-title">Design</span>
+                        <ul class="skill-list">
+                            <li>Identity System</li>
+                            <li>Editorial Layout</li>
+                            <li>Packaging Design</li>
+                        </ul>
+                    </div>
+                    <div class="competency-card skill-reveal">
+                        <span class="competency-title">Fotografie</span>
+                        <ul class="skill-list">
+                            <li>Visual Storytelling</li>
+                            <li>Product Stills</li>
+                            <li>Color Grading</li>
+                        </ul>
+                    </div>
+                    <div class="competency-card skill-reveal">
+                        <span class="competency-title">Web</span>
+                        <ul class="skill-list">
+                            <li>UX Architecture</li>
+                            <li>GSAP Interactions</li>
+                            <li>E-Commerce UI</li>
+                        </ul>
+                    </div>
+                    <div class="competency-card skill-reveal">
+                        <span class="competency-title">Marketing</span>
+                        <ul class="skill-list">
+                            <li>Social Narrative</li>
+                            <li>Targeting Strategy</li>
+                            <li>Brand Voice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Slider -->
+        <section class="section-padding bg-accent">
+            <div class="container">
+                <div class="showcase-header">
+                    <h2 style="font-family: var(--font-display); font-size: var(--text-4xl); margin-bottom: 1rem;">Visual Narrative</h2>
+                    <p style="color: var(--text-secondary); letter-spacing: 0.05em;">Eine kuratierte Auswahl der Key-Visuals.</p>
+                </div>
+                
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1506377247377-2a5b3b0ca7df?auto=format&fit=crop&q=80&w=1200" alt="Detail"></div>
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&q=80&w=1200" alt="Atmosphäre"></div>
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1553310110-238435640283?auto=format&fit=crop&q=80&w=1200" alt="Produkt"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before / After Section -->
+        <section class="section-padding" style="background: white;">
+            <div class="container">
+                <div style="margin-bottom: 4rem; text-align: center;">
+                    <h2 style="font-family: var(--font-editorial); font-size: var(--text-4xl); margin-bottom: 1rem;">The Transformation</h2>
+                    <p style="color: var(--text-secondary);">Vergleich der ursprünglichen Brand-Vision mit dem finalen Produkt.</p>
+                </div>
+                <div class="comparison-slider">
+                    <div class="comparison-img img-after" style="background-image: url('https://images.unsplash.com/photo-1553310110-238435640283?auto=format&fit=crop&q=80&w=1600');"></div>
+                    <div class="comparison-img img-before" style="background-image: url('https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&q=80&w=1600');"></div>
+                    <input type="range" min="0" max="100" value="50" class="slider-input" id="before-after-slider">
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 1.5rem; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary);">
+                    <span>Legacy Style</span>
+                    <span>Modern Identity</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Persona Section (Luxury Style) -->
+        <section class="section-padding bg-dark" style="color: white;">
+            <div class="container">
+                <h2 style="color: var(--accent-warm); font-family: var(--font-display); font-size: var(--text-5xl); margin-bottom: 5rem; text-align: center;">The Audience</h2>
+                <div class="persona-grid">
+                    <div class="persona-card persona-reveal">
+                        <span class="persona-tag">Der Kenner</span>
+                        <p class="persona-quote">"Echte Handwerkskunst zeigt sich im Detail. Ich suche nach der Seele hinter dem Wein."</p>
+                        <p style="color: var(--text-secondary); font-size: var(--text-sm);">Strategie: Fokus auf Heritage-Storytelling und haptische Design-Elemente.</p>
+                    </div>
+                    <div class="persona-card persona-reveal">
+                        <span class="persona-tag">Die Ästhetin</span>
+                        <p class="persona-quote">"Design ist die erste Botschaft. Wenn das Visuelle nicht stimmt, bleibt die Flasche stehen."</p>
+                        <p style="color: var(--text-secondary); font-size: var(--text-sm);">Strategie: Minimalistische UI, High-End Fotografie und flüssige Animationen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</site-layout>
+    <script>
+        // Init Lucide
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+
+        // Register GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- GSAP Animations ---
+
+        // 1. Hero Parallax
+        gsap.to(".hero-img", {
+            y: "20%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // 2. Meta Grid Reveal
+        gsap.from(".meta-cell", {
+            opacity: 1,
+            y: 40,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: ".meta-grid",
+                start: "top 85%",
+            }
+        });
+
+        // 3. Competency Cards Reveal
+        gsap.from(".skill-reveal", {
+            y: 50,
+            opacity: 1,
+            duration: 1.5,
+            stagger: 0.2,
+            ease: "power4.out",
+            scrollTrigger: {
+                trigger: ".skills-visual",
+                start: "top 80%",
+            }
+        });
+
+        // 4. Persona Reveal
+        gsap.from(".persona-reveal", {
+            opacity: 1,
+            x: -30,
+            duration: 1.5,
+            stagger: 0.3,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: ".persona-grid",
+                start: "top 80%",
+                once: false
+            }
+        });
+
+        // --- Swiper Init ---
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            speed: 1200,
+            autoplay: { delay: 4000 },
+            pagination: { el: '.swiper-pagination', clickable: true }
+        });
+
+        // --- Before/After Slider ---
+        const slider = document.getElementById('before-after-slider');
+        const beforeImg = document.querySelector('.img-before');
+        if(slider) {
+            slider.addEventListener('input', (e) => {
+                beforeImg.style.width = `${e.target.value}%`;
+            });
+        }
+    </script>
+       <script src="../script/layout-component.js" defer></script>
+</body>
+</html>

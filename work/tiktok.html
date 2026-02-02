@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional TikTok Marketing Guide</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Layout Component -->
+    <script src="../script/layout-component.js"></script>
+
+    <!-- AUSKOMMENTIERT - CSS wird bereits über externe Dateien und layout-component geladen -->
+    <!-- <style>
+        :root {
+            --bg-secondary: #ebebeb;
+            --text-primary: #0A0A0A;
+            --text-tertiary: #B5A19E;
+            --accent-burgundy: #6E3B49;
+            --font-body: 'Work Sans', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-top: 72px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header / Hero */
+        header {
+            background: var(--bg-primary);
+            color: white;
+            padding: 6rem 0 4rem 0;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "TIKTOK";
+            position: absolute;
+            right: -5%;
+            top: 20%;
+            font-family: var(--font-display);
+            font-size: 15vw;
+            color: rgba(255,255,255,0.03);
+            font-weight: 800;
+            pointer-events: none;
+        }
+
+        .header-label {
+            color: var(--accent-warm);
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            color: var(--text-tertiary);
+            font-size: 1.1rem;
+        }
+
+        /* Interactive Progress Bar */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-default);
+            padding: 1rem 0;
+        }
+
+        .progress-container {
+            height: 6px;
+            background: var(--border-light);
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-burgundy);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .nav-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Guide Sections */
+        .guide-section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            background: var(--bg-dark);
+            color: var(--accent-warm);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--accent-burgundy);
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Interactive Element: Knowledge Card */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-warm);
+        }
+
+        .card.checked {
+            background: var(--bg-accent);
+            border-left: 4px solid var(--accent-burgundy);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-burgundy);
+        }
+
+        .check-circle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-default);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+        }
+
+        .card.checked .check-circle {
+            background: var(--accent-burgundy);
+            border-color: var(--accent-burgundy);
+            color: white;
+        }
+
+        /* Pro-Tip Styling */
+        .pro-tip {
+            background: var(--bg-dark);
+            color: var(--text-primary-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .pro-tip i { color: var(--accent-warm); flex-shrink: 0; }
+
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Success State */
+        #success-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+    </style> -->
+</head>
+<body>
+
+    <site-layout>
+        <header style="background: #000; color: white; padding: 6rem 0 4rem 0; text-align: left; position: relative; overflow: hidden; margin-top: 0;">
+            <div class="container">
+                <span class="header-label" style="color: #BBA28A; text-transform: uppercase; letter-spacing: 0.4em; font-weight: 700; font-size: 0.8rem; margin-bottom: 1.5rem; display: block;">Strategischer Leitfaden</span>
+                <h1 style="font-family: var(--font-display); font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1; margin-bottom: 2rem;">TikTok Marketing<br>Mastery Blueprint</h1>
+                <p class="hero-desc" style="max-width: 600px; color: #B5A19E; font-size: 1.1rem;">Vom passiven Scrollen zur strategischen Content Creation. Lerne, wie du den Algorithmus verstehst, Trends setzt und eine loyale Community aufbaust.</p>
+            </div>
+        </header>
+
+        <div class="sticky-nav">
+            <div class="container">
+                <div class="nav-info">
+                    <span>Strategie-Fortschritt</span>
+                    <span id="pct-display">0% verinnerlicht</span>
+                    <span>Zertifizierung möglich</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-fill" id="p-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            
+            <!-- Section 1: Die Basis -->
+            <section class="guide-section reveal">
+                <div class="section-header">
+                    <span class="section-tag">Phase 01</span>
+                    <h2>Die Kunst der Nischenwahl</h2>
+                    <p>Erfolg auf TikTok beginnt nicht mit dem Posten, sondern mit dem Verstehen deiner Zielgruppe.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card" onclick="toggleKnowledge(this, 10)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="target"></i></div>
+                        <h3>Nischen-Positionierung</h3>
+                        <p>Wähle ein Thema, das dich zum Experten macht – sei es Minimalismus, DIY oder digitale Produktivität. Spezifität gewinnt.</p>
+                    </div>
+                    <div class="card" onclick="toggleKnowledge(this, 10)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="users"></i></div>
+                        <h3>Persona Development</h3>
+                        <p>Erstelle mindestens 2 detaillierte Personas. Wer sind sie? Was sind ihre Probleme (Pain Points)? Wie löst dein Content diese?</p>
+                    </div>
+                    <div class="card" onclick="toggleKnowledge(this, 10)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="search"></i></div>
+                        <h3>Konkurrenz-Audit</h3>
+                        <p>Analysiere 3 erfolgreiche Accounts. Identifiziere deren Erfolgsfaktoren & Schwachstellen mittels einer SWOT-Analyse.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Strategie -->
+            <section class="guide-section reveal">
+                <div class="section-header">
+                    <span class="section-tag">Phase 02</span>
+                    <h2>Algorithmus-Strategie</h2>
+                    <p>Wie du Inhalte strukturierst, um das maximale Potenzial aus TikTok herauszuholen.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card" onclick="toggleKnowledge(this, 15)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="trending-up"></i></div>
+                        <h3>SMART Ziele</h3>
+                        <p>Setze klare Meilensteine: z.B. 500 Follower und 10.000 Aufrufe in den ersten 30 Tagen.</p>
+                    </div>
+                    <div class="card" onclick="toggleKnowledge(this, 15)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="calendar"></i></div>
+                        <h3>30-Tage Content-Plan</h3>
+                        <p>Konsistenz ist der Schlüssel. Erstelle einen festen Redaktionsplan mit täglichen Themen und variierenden Formaten.</p>
+                    </div>
+                </div>
+                <div class="pro-tip">
+                    <i data-lucide="lightbulb" style="width:32px; height:32px;"></i>
+                    <div>
+                        <strong>Pro-Tip: Der Hook-Effekt</strong>
+                        <p>Die ersten 2-3 Sekunden entscheiden über Erfolg oder Misserfolg. Nutze visuelle oder textliche "Hooks", um den Scroll-Vorgang zu stoppen.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Umsetzung -->
+            <section class="guide-section reveal">
+                <div class="section-header">
+                    <span class="section-tag">Phase 03</span>
+                    <h2>Hocheffiziente Produktion</h2>
+                    <p>Minimaler Aufwand, maximaler Impact durch moderne Workflows.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card" onclick="toggleKnowledge(this, 20)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="layers"></i></div>
+                        <h3>Batch-Production</h3>
+                        <p>Produziere Content für eine ganze Woche in einem Block. Das spart Zeit und erhält den kreativen Fokus.</p>
+                    </div>
+                    <div class="card" onclick="toggleKnowledge(this, 20)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="cpu"></i></div>
+                        <h3>KI-gestützte Workflows</h3>
+                        <p>Nutze Tools wie ChatGPT für Skripte, Canva für Grafik-Elemente und CapCut für den dynamischen Schnitt.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Optimierung -->
+            <section class="guide-section reveal">
+                <div class="section-header">
+                    <span class="section-tag">Phase 04</span>
+                    <h2>Data-Driven Growth</h2>
+                    <p>Reflektieren, optimieren, anpassen und wachsen.</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card" onclick="toggleKnowledge(this, 10)">
+                        <div class="check-circle"><i data-lucide="check" style="width:14px"></i></div>
+                        <div class="card-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <h3>PDCA-Zyklus</h3>
+                        <p>Wende den Plan-Do-Check-Act Zyklus an. Analysiere wöchentlich deine Engagement-Raten und optimiere den Kurs.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </site-layout>
+
+    <!-- Skript in work-header.js integriert
+    <script>
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+        // ... (entfernte Logik) ...
+    </script>
+    -->
+    <script src="work-header.js"></script>
+</body>
+</html>
