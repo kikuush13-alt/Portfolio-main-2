@@ -327,14 +327,15 @@
 
         // Image Zoom in Wrapper
         gsap.utils.toArray(".img-reveal-wrapper img").forEach((img) => {
-            gsap.to(img, {
-                scrollTrigger: {
-                    trigger: img,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                },
-                ease: "none"
+        gsap.to(img, {
+            scrollTrigger: {
+                trigger: img,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            },
+            scale: 1.1,
+            ease: "none"
         });
     });
 

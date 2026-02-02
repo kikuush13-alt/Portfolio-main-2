@@ -6,13 +6,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     // 1. HEADER & NAVIGATION
+    // Note: Basic header/nav functionality is handled by layout-component.js
+    // This section only handles work-page-specific elements if they exist
     // =========================================
     
     const workHeader = document.getElementById('workHeader');
-    const navToggle = document.getElementById('workNavToggle');
-    const mobileMenu = document.getElementById('workMobileMenu');
 
-    // Header scroll effect (transparent → solid)
+    // Work-specific header scroll effect (only if workHeader exists)
     if (workHeader) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -22,46 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Mobile menu toggle
-    if (navToggle && mobileMenu) {
-        navToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            navToggle.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
-            // ARIA for accessibility
-            const isOpen = mobileMenu.classList.contains('open');
-            navToggle.setAttribute('aria-expanded', isOpen);
-            mobileMenu.setAttribute('aria-hidden', !isOpen);
-        });
-    }
-
-    // Close menu when clicking a link
-    const navLinks = document.querySelectorAll('.work-nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileMenu) {
-                mobileMenu.classList.remove('open');
-                mobileMenu.setAttribute('aria-hidden', 'true');
-            }
-            if (navToggle) {
-                navToggle.textContent = '☰';
-                navToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    });
-
-    // Close menu on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
-            mobileMenu.classList.remove('open');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            if (navToggle) {
-                navToggle.textContent = '☰';
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggle.focus();
-            }
-        }
-    });
 
     // =========================================
     // 2. GSAP ANIMATIONS
@@ -156,9 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const video = videos[index];
                 if (video) {
                     if (index === currentIndex) {
-                        video.play().catch(() => {
-                            // Autoplay might be blocked
-                            console.log('Autoplay blocked for video', index);
+                        video.play().catch((err) => {
+                            // Autoplay might be blocked by browser
+                            console.log('Autoplay blocked for video', index, '- Error:', err.message);
                         });
                     } else {
                         video.pause();
@@ -209,14 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Keyboard navigation for carousel
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                window.prev();
-            } else if (e.key === 'ArrowRight') {
-                window.next();
-            }
-        });
+        // Keyboard navigation for carousel (only when carousel is in focus or active)
+        const carouselSection = track.closest('section');
+        if (carouselSection) {
+            carouselSection.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    window.prev();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    window.next();
+                }
+            });
+        }
 
         // Initialize carousel
         window.updateCarousel();
@@ -263,11 +228,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bandeContainer) {
         let currentBande = 1;
         
-        setInterval(() => {
+        const rotationInterval = setInterval(() => {
             currentBande = currentBande % 3 + 1;
             const rotation = (currentBande - 1) * -90;
             bandeContainer.style.transform = `rotateX(${rotation}deg)`;
         }, 5000);
+        
+        // Clean up interval when element is removed or page is unloaded
+        window.addEventListener('beforeunload', () => {
+            clearInterval(rotationInterval);
+        });
+        
+        // Use IntersectionObserver to pause when not visible
+        const bandeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    clearInterval(rotationInterval);
+                }
+            });
+        });
+        bandeObserver.observe(bandeContainer);
     }
 
     // =========================================
@@ -286,16 +266,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
         
-        // Keyboard navigation for slider
-        document.addEventListener('keydown', (e) => {
-            if (document.querySelector('.pfadi-slide')) {
+        // Keyboard navigation for slider (only when slider section is in focus)
+        const sliderSection = document.querySelector('.pfadi-slide')?.closest('section');
+        if (sliderSection) {
+            sliderSection.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
                     window.changeSlide(-1);
                 } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
                     window.changeSlide(1);
                 }
-            }
-        });
+            });
+        }
     }
 
     // =========================================
