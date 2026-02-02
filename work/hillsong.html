@@ -13,6 +13,75 @@
     <!-- Unified Work CSS -->
     <link rel="stylesheet" href="../style/work-unified.css">
     
+    <!-- Page-specific styles -->
+    <style>
+        /* Video Carousel Specific Styles */
+        .video-card {
+            flex: 0 0 350px;
+            aspect-ratio: 1080 / 1920;
+            margin: 0 40px;
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: scale(0.85);
+            filter: blur(8px);
+            opacity: 0.4;
+            background: #111;
+            cursor: pointer;
+        }
+        .video-card.active {
+            transform: scale(1.1);
+            filter: blur(0px);
+            opacity: 1;
+            z-index: 10;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        }
+        .video-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Play Button */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(110, 59, 73, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 20;
+        }
+        .video-card.active:hover .play-button { opacity: 1; }
+        .video-card.playing .play-button { display: none; }
+        
+        /* Navigation Buttons */
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(235, 225, 209, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            background: var(--accent-burgundy);
+            border-color: var(--accent-burgundy);
+        }
+    </style>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     

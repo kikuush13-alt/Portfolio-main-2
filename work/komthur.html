@@ -15,6 +15,49 @@
     <!-- Legacy CSS (keeping as backup) -->
     <link rel="stylesheet" href="../style/work-styles.css">
     
+    <!-- Page-specific styles -->
+    <style>
+        /* Case Study Hero */
+        .case-hero {
+            background: linear-gradient(135deg, var(--color-dark-gray) 0%, var(--accent-burgundy) 100%);
+            color: white;
+        }
+        
+        /* Stats Grid */
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        .stat-card {
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary-light);
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .case-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
     <!-- GSAP & Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

@@ -13,6 +13,43 @@
     <!-- Unified Work CSS -->
     <link rel="stylesheet" href="../style/work-unified.css">
     
+    <!-- Page-specific styles -->
+    <style>
+        /* Editorial Grid Layout */
+        .editorial-container {
+            max-width: 140rem;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            padding: 0 4rem;
+        }
+        
+        .nav-header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 0;
+        }
+        
+        .article-main {
+            grid-column: 2 / 8;
+            padding-bottom: 20rem;
+        }
+        
+        .article-sidebar {
+            grid-column: 9 / 13;
+            position: sticky;
+            top: 15rem;
+            height: fit-content;
+        }
+        
+        @media (max-width: 768px) {
+            .article-main { grid-column: 1 / -1; }
+            .article-sidebar { display: none; }
+        }
+    </style>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
