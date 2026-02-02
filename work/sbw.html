@@ -10,6 +10,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
+    <!-- Unified Work CSS -->
+    <link rel="stylesheet" href="../style/work-unified.css">
+    
+    <!-- Page-specific styles -->
+    <style>
+        /* Story Cards Gallery */
+        .story-card {
+            flex: 0 0 280px;
+            aspect-ratio: 9 / 16;
+            background: #1a1a1a;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+        .story-card:hover { transform: scale(1.02); }
+        .story-card video, .story-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Client Marquee */
+        .client-marquee {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            background: white;
+            padding: 4rem 0;
+        }
+        .marquee-content {
+            display: flex;
+            gap: 6rem;
+            animation: scroll 40s linear infinite;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+    </style>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -19,8 +58,11 @@
     
     <!-- Layout Component -->
     <script src="../script/layout-component.js"></script>
+    
+    <!-- Unified Work JavaScript -->
+    <script src="work-unified.js" defer></script>
 
-    <!-- AUSKOMMENTIERT - CSS wird bereits über Tailwind CSS und layout-component geladen -->
+    <!-- AUSKOMMENTIERT - CSS wird nun über work-unified.css geladen -->
     <!-- <style>
         :root {
             --bg-primary: #000;
@@ -328,12 +370,15 @@
         </section>
     </site-layout>
 
-    <!-- Skript in work-header.js integriert
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        // ... (entfernte Logik) ...
-    </script>
-    -->
-    <script src="work-header.js"></script>
+    <!-- Noscript fallback for navigation -->
+    <noscript>
+        <style>
+            .nav { display: flex !important; }
+            .site-header { background: #324B53 !important; }
+        </style>
+    </noscript>
+
+    <!-- Legacy script reference - now handled by work-unified.js -->
+    <!-- <script src="work-header.js"></script> -->
 </body>
 </html>
