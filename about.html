@@ -17,8 +17,27 @@
       <!-- Styles -->
       <link rel="stylesheet" href="style/style.css" />
       <link rel="stylesheet" href="style/about.css" />
+      <link rel="stylesheet" href="style/animations.css" />
    </head>
    <body>
+      <!-- Page Loader -->
+      <div class="page-loader">
+         <div class="loader-content">
+            <div class="loader-logo">
+               <img src="img/logo_white.png" alt="Loading...">
+            </div>
+            <div class="loader-progress">
+               <div class="loader-progress-bar"></div>
+            </div>
+         </div>
+      </div>
+      
+      <!-- Scroll Progress Bar -->
+      <div class="scroll-progress"></div>
+      
+      <!-- Grain Overlay for Editorial Effect -->
+      <div class="grain-overlay"></div>
+      
       <!-- Header / Navbar -->
       <header class="site-header" id="top" aria-label="Seitennavigation">
          <div class="container nav-bar">
@@ -421,6 +440,9 @@
       </footer>
       
       <!-- Scripts -->
+      <script src="https://unpkg.com/split-type@0.3.4/umd/index.js"></script>
       <script src="script/main.js"></script>
+      <script src="script/animations.js"></script>
+      <script src="script/about.js"></script>
    </body>
 </html>
